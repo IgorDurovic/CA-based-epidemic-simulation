@@ -59,7 +59,7 @@ public class Life extends PApplet {
 	}
 
 	public void cycle() {
-
+		//movement phase
 		ArrayList<Person> immigrants;
 		for (int a = 0; a < width / cellDim; a++) {
 			for (int b = 0; b < height / cellDim; b++) {
@@ -91,11 +91,19 @@ public class Life extends PApplet {
 					x += directionX;
 					y += directionY;
 					
-					grid[x][y].addPerson(immigrants.remove(immigrants.size()-1));
+					if(grid[x][y].getCellPopulation() < grid[x][y].getCarryingCapacity()){
+						grid[x][y].addPerson(immigrants.remove(immigrants.size()-1));
+					}
 				}
 			}
 		}
-
+		
+		//infection phase
+		for(int a = 0; a < width/cellDim; a++){
+			for(int b = 0; b < height/cellDim; b++){
+				grid[a][b].infection();
+			}
+		}
 		// for(int a = 0; a < width/cellDim; a++){
 		// for(int b = 0; b < height/cellDim; b++){
 		// int neighbors = 0;
