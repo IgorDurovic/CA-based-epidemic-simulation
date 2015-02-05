@@ -1,12 +1,12 @@
 import java.util.ArrayList;
 
 public class Cell {
-
+	//Variables
 	private Person[][] people;
 	private int carryingCapacity;
 	private int cellPopulation;
 	private double emigrationRate;
-
+	//How the population with work in this Enviroment
 	Cell(int cc, int dimx, int dimy, double er) {
 		carryingCapacity = cc;
 		emigrationRate = er;
@@ -23,7 +23,7 @@ public class Cell {
 			}
 		}
 	}
-
+	//How someone will get better from the disease
 	public int getHealthy() {
 		int counter = 0;
 		for (int a = 0; a < this.people.length; a++) {
@@ -35,7 +35,7 @@ public class Cell {
 		}
 		return counter / cellPopulation;
 	}
-
+	// How people move in/out of the enviroment
 	public ArrayList<Person> Movement() {
 		double rand;
 		ArrayList<Person> emigrants = new ArrayList<Person>();
@@ -57,7 +57,7 @@ public class Cell {
 		}
 		return emigrants;
 	}
-
+	//How people move from place to place.
 	private void step(Person[][] p, int x, int y) {
 		int xRand = ((int)Math.random()*3)-1;
 		int yRand = ((int)Math.random()*3)-1;
