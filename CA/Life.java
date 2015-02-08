@@ -12,7 +12,8 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.IOException;
 
-public class Life extends PApplet {
+public class Life extends PApplet 
+{
 
 	int millis = 100;
 	int cellDim = 25;
@@ -23,7 +24,8 @@ public class Life extends PApplet {
 	Cell savedGrid[][];
 	int lastTime = 0;
 
-	public void setup() {
+	public void setup() 
+	{
 		size(1280, 720);
 
 		grid = new Cell[width / cellDim][height / cellDim];
@@ -31,67 +33,88 @@ public class Life extends PApplet {
 
 		stroke(48);
 
-		for (int a = 0; a < width / cellDim; a++) {
-			for (int b = 0; b < height / cellDim; b++) {
+		for (int a = 0; a < width / cellDim; a++) 
+		{
+			for (int b = 0; b < height / cellDim; b++) 
+			{
 				grid[a][b] = new Cell(50, 10, 10, 0.1);
 			}
 		}
 		background(256, 256, 256);
 	}
 
-	public void draw() {
-		for (int a = 0; a < width / cellDim; a++) {
-			for (int b = 0; b < height / cellDim; b++) {
+	public void draw() 
+	{
+		for (int a = 0; a < width / cellDim; a++) 
+		{
+			for (int b = 0; b < height / cellDim; b++) 
+			{
+				///////////
 				fill(256, 256 * grid[a][b].getHealthy(),
 						256 * grid[a][b].getHealthy());
 				rect(cellDim * a, cellDim * b, cellDim, cellDim);
+				///////////
 			}
 		}
 
-		if (millis() - lastTime > millis) {
+		if (millis() - lastTime > millis) 
+		{
 			cycle();
 			lastTime = millis();
 		}
 	}
 
-	public void keyPressed() {
+	public void keyPressed() 
+	{
 
 	}
 
-	public void cycle() {
+	public void cycle() 
+	{
 		//movement phase
 		ArrayList<Person> immigrants;
-		for (int a = 0; a < width / cellDim; a++) {
-			for (int b = 0; b < height / cellDim; b++) {
+		for (int a = 0; a < width / cellDim; a++) 
+		{
+			for (int b = 0; b < height / cellDim; b++) 
+			{
 				immigrants = grid[a][b].Movement();
-				while(!immigrants.isEmpty()){
+				while(!immigrants.isEmpty())
+				{
 					int x = a, y = b;
 					int directionX;
-					if(Math.random() > 0.5){
+					if(Math.random() > 0.5)
+					{
 						directionX = 1;
 					}
-					else{
+					else
+					{
 						directionX = -1;
 					}
 					
 					int directionY;
-					if(Math.random() > 0.5){
+					if(Math.random() > 0.5)
+					{
 						directionY = 1;
 					}
-					else{
+					else
+					{
 						directionY = -1;
 					}
 					
-					if((x + directionX < 0) || (grid.length < x + directionX)){
+					if((x + directionX < 0) || (grid.length < x + directionX))
+					{
 						directionX = -directionX;
 					}
-					if((y + directionY < 0) || (grid.length < x + directionY)){
+
+					if((y + directionY < 0) || (grid.length < x + directionY))
+					{
 						directionY = -directionY;
 					}
 					x += directionX;
 					y += directionY;
 					
-					if(grid[x][y].getCellPopulation() < grid[x][y].getCarryingCapacity()){
+					if(grid[x][y].getCellPopulation() < grid[x][y].getCarryingCapacity())
+					{
 						grid[x][y].addPerson(immigrants.remove(immigrants.size()-1));
 					}
 				}
@@ -99,8 +122,10 @@ public class Life extends PApplet {
 		}
 		
 		//infection phase
-		for(int a = 0; a < width/cellDim; a++){
-			for(int b = 0; b < height/cellDim; b++){
+		for(int a = 0; a < width/cellDim; a++)
+		{
+			for(int b = 0; b < height/cellDim; b++)
+			{
 				grid[a][b].infection();
 			}
 		}
@@ -109,8 +134,10 @@ public class Life extends PApplet {
 		//1. recovery
 		//2. death
 		//3. data graphing
-		for(int a = 0; a < width/cellDim; a++){
-			for(int b = 0; b < height/cellDim; b++){
+		for(int a = 0; a < width/cellDim; a++)
+		{
+			for(int b = 0; b < height/cellDim; b++)
+			{
 				grid.[a][b].recovery();
 				grid.[a][b].death();
 				grid.[a][b].graphing();
@@ -146,12 +173,16 @@ public class Life extends PApplet {
 		// }
 	}
 
-	static public void main(String[] passedArgs) {
+	static public void main(String[] passedArgs) 
+	{
 		String[] appletArgs = new String[] { "--full-screen",
 				"--bgcolor=#666666", "--stop-color=#cccccc", "Life" };
-		if (passedArgs != null) {
+		if (passedArgs != null) 
+		{
 			PApplet.main(concat(appletArgs, passedArgs));
-		} else {
+		} 
+		else 
+		{
 			PApplet.main(appletArgs);
 		}
 	}
