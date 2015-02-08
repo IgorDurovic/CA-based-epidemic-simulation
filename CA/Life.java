@@ -24,7 +24,7 @@ public class Life extends PApplet
 	Cell savedGrid[][];
 	int lastTime = 0;
 
-	public void setup() 
+	public void setup()  //how big the enviroment is going to be
 	{
 		size(1280, 720);
 
@@ -43,7 +43,7 @@ public class Life extends PApplet
 		background(256, 256, 256);
 	}
 
-	public void draw() 
+	public void draw() // how big each person's area is going to be
 	{
 		for (int a = 0; a < width / cellDim; a++) 
 		{
