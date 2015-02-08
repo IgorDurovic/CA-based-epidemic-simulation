@@ -16,7 +16,7 @@ public class Life extends PApplet {
 
 	int millis = 100;
 	int cellDim = 25;
-	int mortalityRate;
+	int mortalityRate 0.05;
 	int population;
 
 	Cell grid[][];
@@ -104,6 +104,19 @@ public class Life extends PApplet {
 				grid[a][b].infection();
 			}
 		}
+
+		//additional processing
+		//1. recovery
+		//2. death
+		//3. data graphing
+		for(int a = 0; a < width/cellDim; a++){
+			for(int b = 0; b < height/cellDim; b++){
+				grid.[a][b].recovery();
+				grid.[a][b].death();
+				grid.[a][b].graphing();
+			}
+		}
+
 		// for(int a = 0; a < width/cellDim; a++){
 		// for(int b = 0; b < height/cellDim; b++){
 		// int neighbors = 0;
