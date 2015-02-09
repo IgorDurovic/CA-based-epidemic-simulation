@@ -1,6 +1,5 @@
 public class Person 
 {
-	
 	private status personStatus;
 	private double infectionRate;
 	public int recoveryTime;
@@ -14,6 +13,12 @@ public class Person
 	{
 		personStatus = status.SUSCEPTIBLE;
 		infectionRate = ir;
+	}
+	
+	Person(Person p){
+		personStatus = p.getPersonStatus();
+		infectionRate = p.getInfectionRate();
+		recoveryTime = p.getRecoveryTime();
 	}
 
 	public double getInfectionRate() 
@@ -31,13 +36,13 @@ public class Person
 		return personStatus;
 	}
 
-	public void setPersonStatus(status personStatus, int rt) 
+	public void setPersonStatus(Person.status personStatus, int rt) 
 	{
 		this.personStatus = personStatus;
 		recoveryTime = rt;
 	}
 
-	public void getRecoveryTime()
+	public int getRecoveryTime()
 	{
 		return recoveryTime;
 	}
