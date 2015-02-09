@@ -30,7 +30,8 @@ public class Cell
 				{
 					people[a][b] = new Person(0.4);
 					cellPopulation++;
-					if(state > 97 && bool){
+					if(state > 97 && bool)
+					{
 						bool = false;
 						people[a][b].setPersonStatus(Person.status.INFECTED, 25);
 					}
@@ -51,7 +52,8 @@ public class Cell
 		{
 			for (int b = 0; b < this.people[a].length; b++) 
 			{
-				if(this.people[a][b] != null){
+				if(this.people[a][b] != null)
+				{
 					if (this.people[a][b].getPersonStatus() != Person.status.INFECTED) 
 					{
 						counter++;
@@ -71,7 +73,8 @@ public class Cell
 		{
 			for (int j = 0; j < this.people[0].length; j++) 
 			{
-				if(this.people[i][j] != null){
+				if(this.people[i][j] != null)
+				{
 					if (emigrationRate > Math.random()) 
 					{
 						//person e = new Person(this.people[i][j]);
@@ -84,7 +87,7 @@ public class Cell
 						rand = Math.random();
 						if (rand < 0.9 && countNeighbors(this.people, i, j) < 8) 
 						{
-							//step(this.people, i, j);
+							step(this.people, i, j);
 						} 
 						else 
 						{
@@ -103,18 +106,21 @@ public class Cell
 		Random rndobj = new Random();
 		int x_i = x;
 		int y_i = y;
-		while(true){
+		int counter = 0;
+		while(true)
+		{
+			counter++;
 			x = x_i;
 			y = y_i;
 			int xRand = rndobj.nextInt(3) - 1;
 			int yRand = rndobj.nextInt(3) - 1;
 	
-			if ((x + xRand < 0) || (p.length < x + xRand)) 
+			if ((x + xRand < 0) || (p.length <= x + xRand)) 
 			{
 				xRand = -xRand;
 			}
 	
-			if ((y + yRand < 0) || (p[x].length < y + yRand)) 
+			if ((y + yRand < 0) || (p[x].length <= y + yRand)) 
 			{
 				yRand = -yRand;
 			}
@@ -122,7 +128,8 @@ public class Cell
 			x += xRand;
 			y += yRand;
 			
-			if(p[x][y] == null){
+			if(p[x][y] == null || counter > 15)
+			{
 				break;
 			}
 		}
@@ -150,7 +157,8 @@ public class Cell
 		{
 			for(int y = 0; y < this.people[x].length; y++)
 			{
-				if(this.people[x][y] != null){
+				if(this.people[x][y] != null)
+				{
 					if(this.people[x][y].getPersonStatus() == Person.status.SUSCEPTIBLE)
 					{
 						int infectedNeighbors = countNeighbors(this.people, x, y, Person.status.INFECTED);
@@ -224,7 +232,8 @@ public class Cell
 		{
 			for(int y = 0; y < this.people[x].length; y++)
 			{
-				if(this.people[x][y] != null && this.people[x][y].getPersonStatus() == Person.status.INFECTED){
+				if(this.people[x][y] != null && this.people[x][y].getPersonStatus() == Person.status.INFECTED)
+				{
 					if(this.people[x][y].recoveryTime == 0)
 					{
 						this.people[x][y].setPersonStatus(Person.status.REMOVED, 15);
@@ -243,7 +252,8 @@ public class Cell
 			for(int y = 0; y < this.people[x].length; y++)
 			{
 				double rand = Math.random();
-				if(this.people[x][y] != null){
+				if(this.people[x][y] != null)
+				{
 					if(this.people[x][y].getPersonStatus() == Person.status.INFECTED && rand < Life.mortalityRate)
 					{
 						this.people[x][y] = null;
