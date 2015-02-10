@@ -7,6 +7,7 @@ public class Life extends PApplet
 {
 	int millis = 500;
 	int cellDim = 25;
+	public static boolean bool = false;
 	static double mortalityRate = 0.01;
 	int population;
 
@@ -28,7 +29,13 @@ public class Life extends PApplet
 		{
 			for (int b = 0; b < height / cellDim; b++) 
 			{
-				grid[a][b] = new Cell(50, 10, 10, 0.05);
+				if(a == (width/cellDim)/2 && b == (height/cellDim)/2){
+					bool = true;
+					grid[a][b] = new Cell(50, 10, 10, 0.05);
+				}
+				else{
+					grid[a][b] = new Cell(50, 10, 10, 0.05);
+				}
 			}
 		}
 		background(256, 256, 256);
