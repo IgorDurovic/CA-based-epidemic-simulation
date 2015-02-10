@@ -19,7 +19,6 @@ public class Cell
 		deaths = 0;
 		people = new Person[dimx][dimy];
 		cellPopulation = 0;
-		boolean bool = true;
 		for (int a = 0; a < dimx; a++) 
 		{
 			for (int b = 0; b < dimy; b++) 
@@ -30,9 +29,9 @@ public class Cell
 				{
 					people[a][b] = new Person(0.4);
 					cellPopulation++;
-					if(state > 97 && bool)
+					if(state > 97 && Life.bool)
 					{
-						bool = false;
+						Life.bool = false;
 						people[a][b].setPersonStatus(Person.status.INFECTED, 25);
 					}
 				} 
@@ -133,8 +132,10 @@ public class Cell
 				break;
 			}
 		}
-		p[x][y] = new Person(p[x_i][y_i]);
-		p[x_i][y_i] = null;
+		if(counter < 14){
+			p[x][y] = new Person(p[x_i][y_i]);
+			p[x_i][y_i] = null;
+		}
 	}
 
 	public void addPerson(Person p)
