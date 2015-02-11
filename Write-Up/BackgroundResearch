@@ -1,0 +1,8 @@
+Background Research
+	Cellular Automaton(CA), also known as cellular spaces, is a discrete model that is used in mathematics, science, computation theory, and modeling. A CA will usually consist of a regular grid of cells, each one in one of a finite number of states such as dead or alive, infected or cured. This grid can be any dimension with infinite number of squares. The rule for updating each state will usually be constant, but it can change in  stochastic cellular automaton and asynchronous cellular automaton. 
+	There are four primary classifications to automata:
+automata in which patterns generally stabilize into homogeneity
+automata in which patterns evolve into mostly stable or oscillating structures
+automata in which patterns evolve in a seemingly chaotic fashion
+automata in which patterns become extremely complex and may last for a long time, with stable local structures.
+	Epidemic simulation is the simulation of epidemics. For our project, we will be using Cellular Automata to simulate the spread of an epidemic. Epidemiology is the branch of medicine that deals with the control of diseases.
