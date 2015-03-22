@@ -1,0 +1,15 @@
+Journal
+October 1st, 2014- Started research on epidemics
+October 10, 2014- Started basic program template to model the epidemics
+October 14, 2014- Changed code, and starting using R-learning algorithms
+October 28, 2014- Ran first draft of code- experienced many undefined terms and multiple exception errors.
+November 7, 2014- Added 3 states to program- Susceptible, infected, and removed 
+November 15, 2014- Added recovery time to infected people.
+November 20, 2014- Emailed math professors @ U of U asking for assistance on math portion of project
+November 21, 2014- Received 3 out of the 4 emails sent, all which said that they were unable to help us and instead, to contact Firas Rassoul-Agha at the U for assistance.
+November 22, 2014- emailed  Firas Rassoul-Agh, never received response
+December 2, 2014- finished Person.java program
+December 10, 2014- implemented and added Person.java and Life.java into the main constructor, Cell.java
+December 31, 2014- Fixed all the bugs and Cell.java ran smoothly
+January 10, 2015- Revised the susceptibility rates to experiment how fast it goes.
+
