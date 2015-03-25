@@ -12,4 +12,8 @@ December 2, 2014- finished Person.java program
 December 10, 2014- implemented and added Person.java and Life.java into the main constructor, Cell.java
 December 31, 2014- Fixed all the bugs and Cell.java ran smoothly
 January 10, 2015- Revised the susceptibility rates to experiment how fast it goes.
-
+January 18, 2015- Started data collection app
+January 20, 2015- Added  Age.java and Gender.java classes to android app as well as a SecondaryActivity.java class to track activities of infected people.
+February 1, 2015- added InfectPeriod.java and Status.java to collect how long someone is infected and what their status is.
+February 2,  2015-  added MainInfoActivity.java to the android app. This class adds all the previous classes inside the app, and makes it functional.
+February 5, 2015- debugged app-works fine.
